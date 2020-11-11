@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-My name is **arnu515** and I am 14! I love coding and playing Minecraft. *and also spending countless hours on stackoverflow trying to fix that one bug that happened because I messed up the `<` and `>` signs*
+My name is **arnu515** and I am 15! I love coding and playing Minecraft. *and also spending countless hours on stackoverflow trying to fix that one bug that happened because I messed up the `<` and `>` signs*
 
 Anyway, I can code in these languages:
 
