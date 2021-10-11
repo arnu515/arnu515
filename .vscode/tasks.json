@@ -1,0 +1,28 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "cms:dev",
+      "type": "shell",
+      "command": "cd cms && yarn dev",
+      "presentation": {
+        "reveal": "always"
+      },
+      "runOptions": {
+        "runOn": "folderOpen",
+        "instanceLimit": 1
+      }
+    },
+    {
+      "label": "frontend:dev",
+      "type": "shell",
+      "command": "cd frontend && yarn dev",
+      "presentation": {
+        "reveal": "always",
+        "focus": true
+      }
+    }
+  ]
+}
