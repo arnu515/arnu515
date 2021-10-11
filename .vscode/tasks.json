@@ -18,7 +18,7 @@
     {
       "label": "frontend:dev",
       "type": "shell",
-      "command": "cd frontend && yarn dev",
+      "command": "yarn dev",
       "presentation": {
         "reveal": "always",
         "focus": true
