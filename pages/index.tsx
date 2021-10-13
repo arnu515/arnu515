@@ -27,7 +27,7 @@ const Header: React.FC = () => {
           >
             <a
               href="#about-me"
-              className="!text-white !dark:text-white"
+              className="!text-black !dark:text-white"
               onClick={e => {
                 e.preventDefault();
                 document
@@ -73,7 +73,7 @@ const AboutMe: React.FC = () => {
           >
             <a
               href="#my-projects"
-              className="!text-white !dark:text-white"
+              className="!text-black !dark:text-white"
               onClick={e => {
                 e.preventDefault();
                 document
@@ -113,7 +113,7 @@ const MyProjects: React.FC = () => {
           >
             <a
               href="#contact-me"
-              className="!text-white !dark:text-white"
+              className="!text-black !dark:text-white"
               onClick={e => {
                 e.preventDefault();
                 document
@@ -182,7 +182,7 @@ const ContactMe: React.FC<{ openContactForm: () => void }> = ({
           >
             <a
               href="#header"
-              className="!text-white !dark:text-white"
+              className="!text-black !dark:text-white"
               onClick={e => {
                 e.preventDefault();
                 document
