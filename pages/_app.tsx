@@ -1,5 +1,5 @@
 import { GeistProvider, CssBaseline } from "@geist-ui/react";
-import "tailwindcss/tailwind.css";
+import "./app.css";
 
 export default function Application({ Component, pageProps }) {
   return (

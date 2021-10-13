@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  transition-property: color, background, border-color;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+}
