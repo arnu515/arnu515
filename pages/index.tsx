@@ -2,6 +2,7 @@ import { Button, Image, Text } from "@geist-ui/react";
 import { Mail, PenTool, Twitter } from "@geist-ui/react-icons";
 import React from "react";
 import ContactForm from "../components/ContactForm";
+import Navbar from "../components/Navbar";
 
 const Header: React.FC = () => {
   return (
@@ -203,6 +204,7 @@ const Index: React.FC = () => {
 
   return (
     <>
+      <Navbar />
       <Header />
       <AboutMe />
       <MyProjects />
