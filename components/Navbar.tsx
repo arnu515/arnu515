@@ -20,10 +20,12 @@ const LINKS: { href: string; text: string }[] = [
 const Navbar: React.FC = () => {
   return (
     <nav className="px-4 py-2 flex items-center justify-between bg-white border-b border-gray-200 text-black dark:bg-[#212121] dark:border-black dark:text-white">
-      <a className="flex gap-2 items-center cursor-pointer text-black dark:text-white">
-        <Image src="/avatar.png" width="24px" height="24px" />
-        <span className="font-bold">arnu515</span>
-      </a>
+      <Link href="/">
+        <div className="flex gap-2 items-center cursor-pointer text-black dark:text-white">
+          <Image src="/avatar.png" width="24px" height="24px" />
+          <span className="font-bold">arnu515</span>
+        </div>
+      </Link>
       <div className="flex gap-4 items-center mr-4">
         {LINKS.map((link, key) => (
           <Link href={link.href} key={key}>
