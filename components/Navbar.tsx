@@ -1,6 +1,8 @@
+import { Moon, Sun } from "@geist-ui/react-icons";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import useTheme from "../utils/hooks/useTheme";
 
 const LINKS: { href: string; text: string }[] = [
   {
@@ -18,6 +20,8 @@ const LINKS: { href: string; text: string }[] = [
 ];
 
 const Navbar: React.FC = () => {
+  const { setTheme, theme } = useTheme();
+
   return (
     <nav className="px-4 py-2 flex items-center justify-between bg-white border-b border-gray-200 text-black dark:bg-[#212121] dark:border-black dark:text-white">
       <Link href="/">
@@ -37,6 +41,12 @@ const Navbar: React.FC = () => {
             </a>
           </Link>
         ))}
+        <button
+          className="text-[#333333] dark:text-[#cccccc] hover:text-black dark:hover:text-white cursor-pointer"
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        >
+          {theme === "dark" ? <Sun /> : <Moon />}
+        </button>
       </div>
     </nav>
   );
