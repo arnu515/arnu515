@@ -23,6 +23,18 @@ const Index: React.FC = () => {
     <div className="bg-gray-200 text-black dark:bg-gray-900 dark:text-white grid place-items-center min-h-screen border-b border-gray-500 dark:border-black">
       <main className="px-6 py-4">
         <section className="px-6 py-4 text-center">
+          <motion.div
+            initial={{ opacity: 0.5 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+            className="flex items-center justify-center m-8"
+          >
+            <img
+              src="/avatar.png"
+              alt="Avatar"
+              className="rounded-lg w-48 h-48 border border-gray-500 dark:border-black"
+            />
+          </motion.div>
           <motion.h1
             initial={{ opacity: 0.5 }}
             animate={{ opacity: 1 }}
@@ -47,7 +59,7 @@ const Index: React.FC = () => {
           >
             <a
               href="/projects"
-              className="bg-blue-500 text-white flex gap-2 border border-transparent rounded-xl px-5 py-3 text-lg hover:bg-blue-700"
+              className="bg-blue-500 text-white flex gap-2 border border-gray-500 dark:border-black rounded-lg px-5 py-3 text-lg hover:bg-blue-700"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +79,7 @@ const Index: React.FC = () => {
             </a>
             <a
               href="/blog"
-              className="bg-green-500 text-white flex gap-2 border border-transparent rounded-xl px-5 py-3 text-lg hover:bg-green-700"
+              className="bg-green-500 text-white flex gap-2 border border-gray-500 dark:border-black rounded-lg px-5 py-3 text-lg hover:bg-green-700"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +99,7 @@ const Index: React.FC = () => {
             </a>
             <a
               href="/courses"
-              className="bg-yellow-500 text-white flex gap-2 border border-transparent rounded-xl px-5 py-3 text-lg hover:bg-yellow-700"
+              className="bg-yellow-500 text-white flex gap-2 border border-gray-500 dark:border-black rounded-lg px-5 py-3 text-lg hover:bg-yellow-700"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
