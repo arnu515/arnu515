@@ -1,0 +1,21 @@
+datasource db {
+  provider          = "mysql"
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  url               = env("DATABASE_URL")
+  referalIntegrity  = "prisma"
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+model ContactForm {
+  id         String   @id @default(cuid())
+  createdAt  DateTime @default(now()) @map("created_at")
+  full_name  String   @db.VarChar(255)
+  occupation String   @db.VarChar(255)
+  message    String   @db.Text
+
+  @@map("contact_forms")
+}
