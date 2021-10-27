@@ -4,18 +4,6 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "cms:dev",
-      "type": "shell",
-      "command": "cd cms && yarn dev",
-      "presentation": {
-        "reveal": "always"
-      },
-      "runOptions": {
-        "runOn": "folderOpen",
-        "instanceLimit": 1
-      }
-    },
-    {
       "label": "frontend:dev",
       "type": "shell",
       "command": "yarn dev",
