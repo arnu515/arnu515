@@ -23,12 +23,17 @@ const Contact: React.FC = () => {
 
     if (error) toast(<p className="font-mono">{error.message}</p>, { type: "error" });
     else {
-      const res = await fetch("/api/contact");
+      const res = await fetch("/api/contact", {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify(values)
+      });
       const data = await res.json();
+      setLoading(false);
       if (!res.ok)
         toast(<p className="font-mono">{data.message}</p>, { type: "error" });
+      else setFinished(true);
     }
-    setLoading(false);
   }
 
   return (
@@ -41,14 +46,16 @@ const Contact: React.FC = () => {
       >
         Contact Me
       </motion.h1>
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2, delay: 0.4 }}
-        className="text-center mt-4 text-2xl text-gray-700 dark:text-gray-300"
-      >
-        Get in touch by filling out the below form
-      </motion.p>
+      {!finished && (
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2, delay: 0.4 }}
+          className="text-center mt-4 text-2xl text-gray-700 dark:text-gray-300"
+        >
+          Get in touch by filling out the below form
+        </motion.p>
+      )}
 
       <motion.form
         initial={{ opacity: 0 }}
@@ -58,34 +65,49 @@ const Contact: React.FC = () => {
         onSubmit={submit}
         ref={form}
       >
-        <div className="my-2">
-          <label htmlFor="full-name">Full name</label>
-          <input
-            type="text"
-            id="full-name"
-            placeholder="Enter your full name"
-            name="fullName"
-          />
-        </div>
-        <div className="my-2">
-          <label htmlFor="full-name">Occupation</label>
-          <input
-            type="text"
-            id="full-name"
-            placeholder="Enter your occupation"
-            name="occupation"
-          />
-        </div>
-        <div className="my-2">
-          <label htmlFor="full-name">Message</label>
-          <textarea
-            id="full-name"
-            placeholder="Enter a message. Markdown is supported"
-            rows={7}
-            name="message"
-          ></textarea>
-        </div>
-        <button type="submit">Send a message</button>
+        {!finished ? (
+          <React.Fragment>
+            <div className="my-2">
+              <label htmlFor="full-name">Full name</label>
+              <input
+                type="text"
+                id="full-name"
+                placeholder="Enter your full name"
+                name="fullName"
+              />
+            </div>
+            <div className="my-2">
+              <label htmlFor="full-name">Occupation</label>
+              <input
+                type="text"
+                id="full-name"
+                placeholder="Enter your occupation"
+                name="occupation"
+              />
+            </div>
+            <div className="my-2">
+              <label htmlFor="full-name">Message</label>
+              <textarea
+                id="full-name"
+                placeholder="Enter a message. Markdown is supported"
+                rows={7}
+                name="message"
+              ></textarea>
+            </div>
+            <button type="submit" disabled={loading}>
+              {loading ? "..." : "Send a message"}
+            </button>
+          </React.Fragment>
+        ) : (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2, delay: 0.4 }}
+            className="text-center mt-4 text-2xl text-gray-700 dark:text-gray-300"
+          >
+            I will get in touch shortly.
+          </motion.p>
+        )}
       </motion.form>
     </main>
   );
