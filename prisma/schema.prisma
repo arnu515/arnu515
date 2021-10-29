@@ -25,7 +25,7 @@ model User {
   createdAt   DateTime @default(now()) @map("created_at")
   email       String   @unique @db.VarChar(255)
   avatar      String   @db.VarChar(255)
-  countryCode String   @db.VarChar(255)
+  countryCode String?  @db.VarChar(255)
   profile     Profile?
 
   @@map("users")
@@ -36,10 +36,10 @@ model Profile {
   createdAt  DateTime @default(now()) @map("created_at")
   userId     String   @unique
   user       User     @relation(fields: [userId], references: [id])
-  full_name  String   @db.VarChar(255)
-  occupation String   @db.VarChar(255)
-  website    String   @db.VarChar(255)
-  bio        String   @db.Text
+  full_name  String?  @db.VarChar(255)
+  occupation String?  @db.VarChar(255)
+  website    String?  @db.VarChar(255)
+  bio        String?  @db.Text
 
   @@map("profiles")
 }
