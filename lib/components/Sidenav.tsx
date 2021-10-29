@@ -1,5 +1,6 @@
 import React from "react";
 import useTheme from "../hooks/useTheme";
+import Link from "next/link";
 
 const Sidenav: React.FC = () => {
   const { setTheme, theme } = useTheme();
@@ -159,7 +160,7 @@ const SidenavItem: React.FC<{
   onClick?: (e: React.MouseEvent) => void;
   tooltip: string;
 }> = ({ icon, className = "", href, onClick = undefined, tooltip }) => {
-  return (
+  const el = (
     <a
       className={
         "relative flex items-center justify-center h-12 w-12 m-2 bg-[#ccc] text-black dark:bg-[#212121] dark:text-white hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white rounded-3xl hover:rounded-xl cursor-pointer !transition-all !duration-500 group " +
@@ -175,6 +176,7 @@ const SidenavItem: React.FC<{
       </span>
     </a>
   );
+  return href && !href.startsWith("http") ? <Link href={href}>{el}</Link> : el;
 };
 
 export default Sidenav;
