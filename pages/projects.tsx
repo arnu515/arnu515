@@ -126,7 +126,7 @@ const ProjectCard: React.FC<{ project: Project; delay: number }> = ({
       >
         {project.description}
       </motion.p>
-      <div className="flex items-center justify-end gap-4 px-4 py-2">
+      <div className="flex items-center justify-end gap-4 py-2">
         {project.language && (
           <span className="mr-auto">
             <ProjectCardLanguageIcon language={project.language} />
