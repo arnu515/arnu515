@@ -20,7 +20,7 @@ const Name: React.FC = () => {
 
 const Index: React.FC = () => {
   return (
-    <div className="bg-gray-200 text-black dark:bg-gray-900 dark:text-white grid place-items-center min-h-screen border-b border-gray-500 dark:border-black">
+    <div className="bg-gray-200 text-black dark:bg-[#212121] dark:text-white grid place-items-center min-h-screen border-b border-gray-500 dark:border-black">
       <main className="px-6 py-4">
         <section className="px-6 py-4 text-center">
           <motion.div

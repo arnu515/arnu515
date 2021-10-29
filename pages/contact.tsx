@@ -37,7 +37,7 @@ const Contact: React.FC = () => {
   }
 
   return (
-    <main className="bg-gray-200 text-black dark:bg-gray-900 dark:text-white p-8 min-h-screen">
+    <main className="bg-gray-200 text-black dark:bg-[#212121] dark:text-white p-8 min-h-screen">
       <motion.h1
         initial={{ opacity: 0.3 }}
         animate={{ opacity: 1 }}
