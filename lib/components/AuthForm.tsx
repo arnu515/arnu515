@@ -145,6 +145,18 @@ const AuthForm: React.FC<{ onDone?: () => void; onCancel?: () => void }> = ({
             </p>
           </React.Fragment>
         )}
+
+        <h2 className="text-center text-3xl mt-10 mb-4 font-bold">
+          Authenticate with OAuth
+        </h2>
+        <div className="flex flex-col gap-2 items-center justify-center">
+          <a
+            href="/api/auth/discord"
+            className="bg-[#5865F2] text-white w-full px-4 py-2 rounded-md border border-transparent text-center hover:brightness-110 transition-all duration-500"
+          >
+            Login with Discord
+          </a>
+        </div>
       </div>
     </motion.form>
   );
