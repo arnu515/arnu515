@@ -2,6 +2,25 @@ import nextSession from "next-session";
 import { SessionData, SessionStore } from "next-session/lib/types";
 import { generateCode } from "./auth/util";
 import redis from "./redis";
+import type { GetServerSideProps } from "next";
+
+export const returnUserFromSession: GetServerSideProps = async ({ req, res }) => {
+  const session = await getSession(req, res);
+
+  if (session) {
+    return {
+      // To prevent Nextjs from complaining
+      props: JSON.parse(
+        JSON.stringify({
+          user: session.user,
+          profile: session.profile,
+          session
+        })
+      )
+    };
+  }
+  return { props: { user: null, profile: null, session: null } };
+};
 
 // thanks github copilot <3
 class RedisStore implements SessionStore {

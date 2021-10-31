@@ -21,12 +21,15 @@ model ContactForm {
 }
 
 model User {
-  id          String   @id @default(cuid())
-  createdAt   DateTime @default(now()) @map("created_at")
-  email       String   @unique @db.VarChar(255)
-  avatar      String   @db.VarChar(255)
-  countryCode String?  @db.VarChar(255)
-  profile     Profile?
+  id           String   @id @default(cuid())
+  createdAt    DateTime @default(now()) @map("created_at")
+  email        String   @unique @db.VarChar(255)
+  avatar       String   @db.VarChar(255)
+  countryCode  String?  @db.VarChar(255)
+  profile      Profile?
+  provider     String?  @db.VarChar(255)
+  providerId   String?  @db.VarChar(255)
+  providerData String?  @db.Text
 
   @@map("users")
 }

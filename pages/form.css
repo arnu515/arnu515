@@ -4,7 +4,7 @@
 
 .form input,
 .form textarea {
-  @apply w-full px-4 py-2 border border-gray-500 rounded-md bg-white text-black dark:bg-[#212121] dark:text-white dark:border-gray-900 outline-none focus:border-2;
+  @apply w-full px-4 py-2 border border-gray-500 rounded-md bg-white text-black dark:bg-[#212121] dark:text-white dark:border-gray-400 outline-none focus:border-2;
 }
 
 .form textarea {
@@ -12,5 +12,9 @@
 }
 
 .form button[type="submit"] {
-  @apply px-4 py-2 bg-blue-500 text-white w-full mt-4 rounded-md border border-blue-600 hover:bg-blue-600 cursor-pointer;
+  @apply px-4 py-2 bg-blue-500 text-white w-full mt-4 rounded-md border border-blue-600 hover:bg-blue-600 cursor-pointer disabled:bg-blue-600 disabled:cursor-not-allowed;
+}
+
+.form button[type="submit"]:disabled {
+  content: "...";
 }

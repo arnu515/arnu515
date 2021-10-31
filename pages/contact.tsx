@@ -34,6 +34,7 @@ const Contact: React.FC = () => {
         toast(<p className="font-mono">{data.message}</p>, { type: "error" });
       else setFinished(true);
     }
+    setLoading(false);
   }
 
   return (
@@ -77,18 +78,18 @@ const Contact: React.FC = () => {
               />
             </div>
             <div className="my-2">
-              <label htmlFor="full-name">Occupation</label>
+              <label htmlFor="occupation">Occupation</label>
               <input
                 type="text"
-                id="full-name"
+                id="occupation"
                 placeholder="Enter your occupation"
                 name="occupation"
               />
             </div>
             <div className="my-2">
-              <label htmlFor="full-name">Message</label>
+              <label htmlFor="message">Message</label>
               <textarea
-                id="full-name"
+                id="message"
                 placeholder="Enter a message. Markdown is supported"
                 rows={7}
                 name="message"
