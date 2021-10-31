@@ -22,7 +22,8 @@ export type AuthHandler = (
 
 export type GetUser<Metadata = any> = (
   metadata: Metadata,
-  countryCode?: string
+  countryCode?: string,
+  req?: NextApiRequest
 ) => Promise<GetUserReturnType> | GetUserReturnType;
 
 export function generateCode(length: number): string {

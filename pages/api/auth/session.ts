@@ -42,7 +42,8 @@ const handler: NextApiHandler = async (req, res) => {
     const providerFunc = auth[metadata.provider];
     const { error, status, user } = await providerFunc.getUser(
       metadata,
-      countryCode ? countryCode.toUpperCase() : undefined
+      countryCode ? countryCode.toUpperCase() : undefined,
+      req
     );
 
     if (error) {
