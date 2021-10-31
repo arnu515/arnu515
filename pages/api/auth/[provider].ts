@@ -2,7 +2,7 @@ import { NextApiHandler } from "next";
 import auth from "../../../lib/auth";
 
 const handler: NextApiHandler = async (req, res) => {
-  if (req.method !== "POST") {
+  if (req.method !== "GET") {
     res.status(405).end();
   }
 

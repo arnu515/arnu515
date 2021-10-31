@@ -38,11 +38,11 @@ export const handler: AuthHandler = async req => {
     .object({
       email: joi.string().email().required()
     })
-    .validate(req.body);
+    .validate({ email: req.query.email });
 
   if (error) return { error: error.message, status: 400 };
 
-  const { email } = req.body;
+  const { email } = req.query;
 
   const code = await storeCode(undefined, { email, provider: "email" });
 
