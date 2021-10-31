@@ -18,8 +18,8 @@ const ProjectCardLanguageIcon: React.FC<{ language: Project["language"] }> = ({
             y2="1151.089"
             gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"
           >
-            <stop offset="0" stop-color="#5A9FD4"></stop>
-            <stop offset="1" stop-color="#306998"></stop>
+            <stop offset="0" stopColor="#5A9FD4"></stop>
+            <stop offset="1" stopColor="#306998"></stop>
           </linearGradient>
           <linearGradient
             id="python-original-b"
@@ -30,8 +30,8 @@ const ProjectCardLanguageIcon: React.FC<{ language: Project["language"] }> = ({
             y2="1149.537"
             gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"
           >
-            <stop offset="0" stop-color="#FFD43B"></stop>
-            <stop offset="1" stop-color="#FFE873"></stop>
+            <stop offset="0" stopColor="#FFD43B"></stop>
+            <stop offset="1" stopColor="#FFE873"></stop>
           </linearGradient>
           <path
             fill="url(#python-original-a)"
@@ -51,8 +51,8 @@ const ProjectCardLanguageIcon: React.FC<{ language: Project["language"] }> = ({
             gradientTransform="matrix(0 -.24 -1.055 0 532.979 557.576)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#B8B8B8" stop-opacity=".498"></stop>
-            <stop offset="1" stop-color="#7F7F7F" stop-opacity="0"></stop>
+            <stop offset="0" stopColor="#B8B8B8" stopOpacity=".498"></stop>
+            <stop offset="1" stopColor="#7F7F7F" stopOpacity="0"></stop>
           </radialGradient>
           <path
             opacity=".444"
@@ -128,8 +128,14 @@ const ProjectCard: React.FC<{ project: Project; delay: number }> = ({
       </motion.p>
       <div className="flex items-center justify-end gap-4 py-2">
         {project.language && (
-          <span className="mr-auto">
-            <ProjectCardLanguageIcon language={project.language} />
+          <span className="mr-auto flex gap-4 items-center">
+            {Array.isArray(project.language) ? (
+              project.language.map((lang, i) => (
+                <ProjectCardLanguageIcon language={lang} key={i} />
+              ))
+            ) : (
+              <ProjectCardLanguageIcon language={project.language} />
+            )}
           </span>
         )}
         {project.link && (

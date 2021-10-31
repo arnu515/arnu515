@@ -1,8 +1,8 @@
 datasource db {
-  provider          = "mysql"
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
-  url               = env("DATABASE_URL")
-  referalIntegrity  = "prisma"
+  provider             = "mysql"
+  shadowDatabaseUrl    = env("SHADOW_DATABASE_URL")
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
 }
 
 generator client {
@@ -18,4 +18,31 @@ model ContactForm {
   message    String   @db.Text
 
   @@map("contact_forms")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  createdAt    DateTime @default(now()) @map("created_at")
+  email        String   @unique @db.VarChar(255)
+  avatar       String   @db.VarChar(255)
+  countryCode  String?  @db.VarChar(255)
+  profile      Profile?
+  provider     String?  @db.VarChar(255)
+  providerId   String?  @db.VarChar(255)
+  providerData String?  @db.Text
+
+  @@map("users")
+}
+
+model Profile {
+  id         String   @id @default(cuid())
+  createdAt  DateTime @default(now()) @map("created_at")
+  userId     String   @unique
+  user       User     @relation(fields: [userId], references: [id])
+  full_name  String?  @db.VarChar(255)
+  occupation String?  @db.VarChar(255)
+  website    String?  @db.VarChar(255)
+  bio        String?  @db.Text
+
+  @@map("profiles")
 }

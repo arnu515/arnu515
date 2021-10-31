@@ -11,6 +11,31 @@
         "reveal": "always",
         "focus": true
       }
+    },
+    {
+      "label": "planetscale:listen",
+      "type": "shell",
+      "command": "pscale connect ${input:dbName} ${input:dbBranch} --port ${input:dbPort}"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "dbName",
+      "type": "promptString",
+      "default": "",
+      "description": "Database name"
+    },
+    {
+      "id": "dbBranch",
+      "type": "promptString",
+      "default": "",
+      "description": "Database branch"
+    },
+    {
+      "id": "dbPort",
+      "type": "promptString",
+      "default": "3309",
+      "description": "Database port"
     }
   ]
 }
