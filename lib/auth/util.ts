@@ -14,6 +14,7 @@ export interface GetUserReturnType {
   error?: string;
   status?: number;
   user?: User;
+  redirect?: boolean;
 }
 
 export type AuthHandler = (

@@ -40,7 +40,7 @@ const handler: NextApiHandler = async (req, res) => {
       : null;
 
     const providerFunc = auth[metadata.provider];
-    const { error, status, user } = await providerFunc.getUser(
+    const { error, status, user, redirect } = await providerFunc.getUser(
       metadata,
       countryCode ? countryCode.toUpperCase() : undefined,
       req
@@ -71,7 +71,8 @@ const handler: NextApiHandler = async (req, res) => {
     session.loggedInAt = new Date();
     session.loginIp = ip;
     session.loginCountry = countryCode;
-    res.status(200).json({ user, profile });
+    if (redirect) res.redirect("/");
+    else res.status(200).json({ user, profile });
   } else if (req.method === "DELETE") {
     delete session.userId;
     delete session.user;
