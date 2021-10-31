@@ -4,6 +4,18 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "cms:dev",
+      "type": "shell",
+      "command": "cd cms && yarn dev",
+      "presentation": {
+        "reveal": "always"
+      },
+      "runOptions": {
+        "runOn": "folderOpen",
+        "instanceLimit": 1
+      }
+    },
+    {
       "label": "frontend:dev",
       "type": "shell",
       "command": "yarn dev",
@@ -11,31 +23,6 @@
         "reveal": "always",
         "focus": true
       }
-    },
-    {
-      "label": "planetscale:listen",
-      "type": "shell",
-      "command": "pscale connect ${input:dbName} ${input:dbBranch} --port ${input:dbPort}"
-    }
-  ],
-  "inputs": [
-    {
-      "id": "dbName",
-      "type": "promptString",
-      "default": "",
-      "description": "Database name"
-    },
-    {
-      "id": "dbBranch",
-      "type": "promptString",
-      "default": "",
-      "description": "Database branch"
-    },
-    {
-      "id": "dbPort",
-      "type": "promptString",
-      "default": "3309",
-      "description": "Database port"
     }
   ]
 }
