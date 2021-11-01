@@ -149,13 +149,14 @@ const Me: React.FC<{ user: User; profile: Profile; session: Record<string, any> 
       <h2 className="text-4xl font-bold mt-8 mb-4">Logout</h2>
       <button
         className="m-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-transparent text-lg rounded-md"
+        disabled={loading}
         onClick={async () => {
           setLoading(true);
           await fetch("/api/auth/session", { method: "DELETE" });
           window.location.href = "/";
         }}
       >
-        Logout
+        {loading ? "..." : "Logout"}
       </button>
     </main>
   );
