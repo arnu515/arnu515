@@ -51,7 +51,12 @@ export const getUser: GetUser = async (metadata, countryCode, req) => {
       error: "Failed to get token"
     };
   }
-  const { access_token } = data;
+  const { access_token, scope } = data;
+  if (scope !== "identify email") {
+    return {
+      error: "Invalid scope"
+    };
+  }
   // get user info using token
   const userRes = await fetch("https://discord.com/api/users/@me", {
     headers: {
@@ -97,7 +102,7 @@ export const getUser: GetUser = async (metadata, countryCode, req) => {
     };
   }
 
-  return { user };
+  return { user, redirect: true };
 };
 
 export default { handler, getUser };
