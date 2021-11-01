@@ -30,6 +30,10 @@ const handler: NextApiHandler = async (req, res) => {
       res.status(400).json({ error: error.message });
       return;
     }
+    if (await prisma.user.findUnique({ where: { email: req.body.email } })) {
+      res.status(400).json({ error: "This email is being used by another user" });
+      return;
+    }
     const user = await prisma.user.update({
       where: {
         id: session.user.id
