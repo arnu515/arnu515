@@ -156,6 +156,12 @@ const AuthForm: React.FC<{ onDone?: () => void; onCancel?: () => void }> = ({
           >
             Login with Discord
           </a>
+          <a
+            href="/api/auth/github"
+            className="bg-[#181717] text-white w-full px-4 py-2 rounded-md border border-transparent text-center hover:brightness-110 transition-all duration-500"
+          >
+            Login with Github
+          </a>
         </div>
       </div>
     </motion.form>
