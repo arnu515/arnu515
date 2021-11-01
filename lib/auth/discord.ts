@@ -1,10 +1,10 @@
-import { AuthHandler, GetUser, storeCode } from "./util";
+import { AuthHandler, GetUser, storeCode, generateCode } from "./util";
 import qs from "qs";
 import prisma from "../prisma";
 import crypto from "crypto";
 
-export const handler: AuthHandler = async req => {
-  const code = await storeCode(undefined, { provider: "discord" });
+export const handler: AuthHandler = async _ => {
+  const code = await storeCode(generateCode(21), { provider: "discord" });
   return {
     redirect:
       "https://discord.com/api/oauth2/authorize?" +

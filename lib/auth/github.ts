@@ -1,9 +1,9 @@
-import { AuthHandler, GetUser, storeCode } from "./util";
+import { AuthHandler, generateCode, GetUser, storeCode } from "./util";
 import qs from "qs";
 import prisma from "../prisma";
 
-export const handler: AuthHandler = async req => {
-  const code = await storeCode(undefined, { provider: "github" });
+export const handler: AuthHandler = async _ => {
+  const code = await storeCode(generateCode(21), { provider: "github" });
   return {
     redirect:
       "https://github.com/login/oauth/authorize?" +
