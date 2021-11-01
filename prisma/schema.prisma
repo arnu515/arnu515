@@ -21,15 +21,17 @@ model ContactForm {
 }
 
 model User {
-  id           String   @id @default(cuid())
-  createdAt    DateTime @default(now()) @map("created_at")
-  email        String   @unique @db.VarChar(255)
-  avatar       String   @db.VarChar(255)
-  countryCode  String?  @db.VarChar(255)
+  id           String        @id @default(cuid())
+  createdAt    DateTime      @default(now()) @map("created_at")
+  email        String        @unique @db.VarChar(255)
+  avatar       String        @db.VarChar(255)
+  countryCode  String?       @db.VarChar(255)
   profile      Profile?
-  provider     String?  @db.VarChar(255)
-  providerId   String?  @db.VarChar(255)
-  providerData String?  @db.Text
+  provider     String?       @db.VarChar(255)
+  providerId   String?       @db.VarChar(255)
+  providerData String?       @db.Text
+  post         Post[]
+  postComments PostComment[]
 
   @@map("users")
 }
@@ -45,4 +47,30 @@ model Profile {
   bio        String?  @db.Text
 
   @@map("profiles")
+}
+
+model Post {
+  slug      String        @id
+  createdAt DateTime      @default(now()) @map("created_at")
+  userId    String        @unique
+  user      User          @relation(fields: [userId], references: [id])
+  title     String        @db.VarChar(255)
+  cover     String?       @db.VarChar(255)
+  comments  PostComment[]
+  /// Comma separated string of tags
+  tags      String        @db.VarChar(255)
+
+  @@map("posts")
+}
+
+model PostComment {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  postId    String   @unique
+  post      Post     @relation(fields: [postId], references: [slug])
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id])
+  content   String   @db.Text
+
+  @@map("post_comments")
 }
