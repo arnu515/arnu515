@@ -2,6 +2,7 @@ import React from "react";
 import { formDataToObject } from "../util";
 import joi from "joi";
 import { toast } from "react-toastify";
+import qs from "qs";
 import { motion } from "framer-motion";
 
 const AuthForm: React.FC<{ onDone?: () => void; onCancel?: () => void }> = ({
@@ -32,13 +33,7 @@ const AuthForm: React.FC<{ onDone?: () => void; onCancel?: () => void }> = ({
     if (error) toast(<p className="font-mono">{error.message}</p>, { type: "error" });
     else {
       try {
-        const res = await fetch("/api/auth/email", {
-          method: "POST",
-          body: JSON.stringify({ email: values.email }),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        });
+        const res = await fetch("/api/auth/email?" + qs.stringify(values));
         if (!res.ok) {
           const data = await res.json();
           toast(data.message, { type: "error" });
@@ -107,6 +102,7 @@ const AuthForm: React.FC<{ onDone?: () => void; onCancel?: () => void }> = ({
             <p className="flex gap-2 items-center">
               <button
                 className="px-4 py-2 bg-gray-500 text-black w-full mt-4 rounded-md border border-black cursor-pointer"
+                type="button"
                 onClick={() => {
                   form.current.reset();
                   setSentEmail(false);
