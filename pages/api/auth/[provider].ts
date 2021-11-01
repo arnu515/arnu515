@@ -4,6 +4,7 @@ import auth from "../../../lib/auth";
 const handler: NextApiHandler = async (req, res) => {
   if (req.method !== "GET") {
     res.status(405).end();
+    return;
   }
 
   const { provider } = req.query;
