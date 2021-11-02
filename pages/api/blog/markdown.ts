@@ -31,7 +31,8 @@ const handler: NextApiHandler = (req, res) => {
   mdit.use(require("markdown-it-anchor"));
   mdit.use(require("markdown-it-attrs"));
 
-  res.status(200).json({ content: mdit.render(content) });
+  if (req.headers.accept.startsWith("text")) res.status(200).send(mdit.render(content));
+  else res.status(200).json({ content: mdit.render(content) });
 };
 
 export default handler;
