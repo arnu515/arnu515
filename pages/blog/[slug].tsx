@@ -5,6 +5,7 @@ import path from "path";
 import styles from "../blog.module.css";
 import type { GetServerSideProps } from "next";
 import type { Post, User, Profile } from "@prisma/client";
+import type Prisma from "../../lib/prisma";
 
 interface IBlogPost extends Post {
   user: {
@@ -18,7 +19,8 @@ interface IBlogPost extends Post {
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const { slug } = params;
-  const prisma = require("../../lib/prisma").default;
+  if (typeof slug !== "string") return { notFound: true };
+  const prisma: typeof Prisma = require("../../lib/prisma").default;
   const post = await prisma.post.findUnique({
     where: { slug },
     include: {
