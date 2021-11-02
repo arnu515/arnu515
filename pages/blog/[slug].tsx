@@ -84,22 +84,28 @@ const CommentBox: React.FC<{
     e.preventDefault();
     if (comment.trim().length < 1) return;
     setLoading(true);
-    const res = await fetch("/api/blog/comment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        slug,
-        content: comment
-      })
-    });
-    const data = await res.json();
-    if (res.ok) {
-      onComment(data.comment);
-      setComment("");
-    } else {
-      toast(data.message, { type: "error" });
+    try {
+      toast("Posting comment...", { type: "info" });
+      const res = await fetch("/api/blog/comment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          slug,
+          content: comment
+        })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        toast("Added comment", { type: "success" });
+        onComment(data.comment);
+        setComment("");
+      } else {
+        toast(data.message, { type: "error" });
+      }
+    } catch (e) {
+      toast(e.message, { type: "error" });
     }
     setLoading(false);
   }

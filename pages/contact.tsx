@@ -23,6 +23,7 @@ const Contact: React.FC = () => {
 
     if (error) toast(<p className="font-mono">{error.message}</p>, { type: "error" });
     else {
+      toast("Sending request...", { type: "info" });
       const res = await fetch("/api/contact", {
         headers: { "Content-Type": "application/json" },
         method: "POST",

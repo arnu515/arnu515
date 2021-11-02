@@ -32,6 +32,7 @@ const AuthForm: React.FC<{ onDone?: () => void; onCancel?: () => void }> = ({
 
     if (error) toast(<p className="font-mono">{error.message}</p>, { type: "error" });
     else {
+      toast("Sending an email", { type: "info" });
       try {
         const res = await fetch("/api/auth/email?" + qs.stringify(values));
         if (!res.ok) {
@@ -61,6 +62,7 @@ const AuthForm: React.FC<{ onDone?: () => void; onCancel?: () => void }> = ({
 
     if (error) toast(<p className="font-mono">{error.message}</p>, { type: "error" });
     else {
+      toast("Logging you in...", { type: "info" });
       try {
         const res = await fetch("/api/auth/session?token=" + values.code);
         const data = await res.json();
