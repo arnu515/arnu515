@@ -67,8 +67,8 @@ const BlogPost: React.FC<{ post: IBlogPost }> = ({ post }) => {
           </h3>
         </Link>
         <p>
-          {(post.tags || "").split(",").map(tag => (
-            <span className="text-gray-600 dark:text-gray-300 mr-2">
+          {(post.tags || "").split(",").map((tag, key) => (
+            <span key={key} className="text-gray-600 dark:text-gray-300 mr-2">
               <span className="text-gray-400 dark:text-gray-600 mr-1">#</span>
               {tag.trim()}
             </span>
