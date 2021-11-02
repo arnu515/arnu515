@@ -41,7 +41,7 @@ model Profile {
   createdAt  DateTime @default(now()) @map("created_at")
   userId     String   @unique
   user       User     @relation(fields: [userId], references: [id])
-  full_name  String?  @db.VarChar(255)
+  full_name  String   @db.VarChar(255)
   occupation String?  @db.VarChar(255)
   website    String?  @db.VarChar(255)
   bio        String?  @db.Text
