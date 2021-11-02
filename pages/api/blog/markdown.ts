@@ -1,6 +1,7 @@
 import { NextApiHandler } from "next";
 import MarkdownIt from "markdown-it";
 import hljs from "highlight.js";
+import tag from "html-tag";
 
 const handler: NextApiHandler = (req, res) => {
   if (req.method !== "POST") {
@@ -17,7 +18,11 @@ const handler: NextApiHandler = (req, res) => {
     highlight: (str, lang) => {
       if (lang && hljs.getLanguage(lang)) {
         try {
-          return hljs.highlight(lang, str).value;
+          return tag(
+            "pre",
+            { class: "hljs lang-" + lang },
+            tag("code", hljs.highlight(lang, str, true).value)
+          );
         } catch (__) {}
       }
       return ""; // use external default escaping
