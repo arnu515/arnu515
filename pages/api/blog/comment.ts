@@ -16,7 +16,7 @@ const handler: NextApiHandler = async (req, res) => {
   const { error } = joi
     .object({
       slug: joi.string().required(),
-      content: joi.string().required().max(500)
+      content: joi.string().required().max(500).trim()
     })
     .validate(req.body);
   if (error) {
