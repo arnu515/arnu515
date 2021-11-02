@@ -2,6 +2,7 @@ import React from "react";
 import { ToastContainer } from "react-toastify";
 import "./app.css";
 import "./form.css";
+import "./codehighlight.css";
 import "react-toastify/dist/ReactToastify.min.css";
 import Sidenav from "../lib/components/Sidenav";
 import UserContext, { getUser } from "../lib/contexts/UserContext";
