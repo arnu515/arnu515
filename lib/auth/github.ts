@@ -110,4 +110,6 @@ export const getUser: GetUser = async (metadata, countryCode, req) => {
   return { user, redirect: true };
 };
 
-export default { handler, getUser };
+const github = { handler, getUser };
+
+export default github;

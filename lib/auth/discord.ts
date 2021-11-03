@@ -105,4 +105,6 @@ export const getUser: GetUser = async (metadata, countryCode, req) => {
   return { user, redirect: true };
 };
 
-export default { handler, getUser };
+const discord = { handler, getUser };
+
+export default discord;

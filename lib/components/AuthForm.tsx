@@ -4,6 +4,7 @@ import joi from "joi";
 import { toast } from "react-toastify";
 import qs from "qs";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const AuthForm: React.FC<{ onDone?: () => void; onCancel?: () => void }> = ({
   onDone,
@@ -148,18 +149,16 @@ const AuthForm: React.FC<{ onDone?: () => void; onCancel?: () => void }> = ({
           Authenticate with OAuth
         </h2>
         <div className="flex flex-col gap-2 items-center justify-center">
-          <a
-            href="/api/auth/discord"
-            className="bg-[#5865F2] text-white w-full px-4 py-2 rounded-md border border-transparent text-center hover:brightness-110 transition-all duration-500"
-          >
-            Login with Discord
-          </a>
-          <a
-            href="/api/auth/github"
-            className="bg-[#181717] text-white w-full px-4 py-2 rounded-md border border-transparent text-center hover:brightness-110 transition-all duration-500"
-          >
-            Login with Github
-          </a>
+          <Link href="/api/auth/discord">
+            <a className="bg-[#5865F2] text-white w-full px-4 py-2 rounded-md border border-transparent text-center hover:brightness-110 transition-all duration-500">
+              Login with Discord
+            </a>
+          </Link>
+          <Link href="/api/auth/github">
+            <a className="bg-[#181717] text-white w-full px-4 py-2 rounded-md border border-transparent text-center hover:brightness-110 transition-all duration-500">
+              Login with Github
+            </a>
+          </Link>
         </div>
       </div>
     </motion.form>

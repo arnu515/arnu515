@@ -62,9 +62,11 @@ const BlogPost: React.FC<{ post: IBlogPost }> = ({ post }) => {
       )}
       <div className="px-4 py-2">
         <Link href={`/blog/${post.slug}`}>
-          <h3 className="text-3xl font-bold my-2 hover:underline cursor-pointer">
-            {post.title}
-          </h3>
+          <a>
+            <h3 className="text-3xl font-bold my-2 hover:underline cursor-pointer">
+              {post.title}
+            </h3>
+          </a>
         </Link>
         <p>
           {(post.tags || "").split(",").map((tag, key) => (
@@ -105,7 +107,7 @@ const BlogIndex: React.FC<{ posts: IBlogPost[] }> = ({ posts: postsFromServer })
 
   return (
     <main className="bg-gray-200 text-black dark:bg-[#212121] dark:text-white p-8 min-h-screen">
-      <h1 className="text-center my-8 text-5xl font-bold">arnu515's blog</h1>
+      <h1 className="text-center my-8 text-5xl font-bold">arnu515&#39;s blog</h1>
       <p className="text-center my-4 text-2xl">I write programming tutorials here!</p>
       <p className="text-center my-4 text-xl">
         If you want more content, checkout my{" "}

@@ -92,4 +92,6 @@ export const handler: AuthHandler = async req => {
   return { code };
 };
 
-export default { getUser, handler };
+const email = { getUser, handler };
+
+export default email;
