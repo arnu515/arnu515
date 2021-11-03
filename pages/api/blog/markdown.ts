@@ -26,7 +26,10 @@ const handler: NextApiHandler = (req, res) => {
           return tag(
             "pre",
             { class: "hljs lang-" + lang },
-            tag("code", hljs.highlight(lang, str, true).value)
+            tag(
+              "code",
+              hljs.highlight(str, { language: lang, ignoreIllegals: true }).value
+            )
           );
         } catch (__) {}
       }
