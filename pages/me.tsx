@@ -36,6 +36,7 @@ const Me: React.FC<{ user: User; profile: Profile; session: Record<string, any> 
 
     if (error) toast(<p className="font-mono">{error.message}</p>, { type: "error" });
     else {
+      toast("Updating your profile...", { type: "info" });
       const res = await fetch("/api/auth/me/profile", {
         headers: { "Content-Type": "application/json" },
         method: "PUT",
@@ -63,6 +64,7 @@ const Me: React.FC<{ user: User; profile: Profile; session: Record<string, any> 
 
     if (error) toast(<p className="font-mono">{error.message}</p>, { type: "error" });
     else {
+      toast("Updating your account...", { type: "info" });
       const res = await fetch("/api/auth/me", {
         headers: { "Content-Type": "application/json" },
         method: "PUT",

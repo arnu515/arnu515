@@ -22,7 +22,8 @@ const handler: NextApiHandler = async (req, res) => {
     if (!profile) {
       profile = await prisma.profile.create({
         data: {
-          userId: session.user.id
+          userId: session.user.id,
+          full_name: session.user.email.split("@")[0]
         },
         include: { user: true }
       });

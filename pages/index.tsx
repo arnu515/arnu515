@@ -42,7 +42,7 @@ const Index: React.FC = () => {
             transition={{ duration: 2 }}
             className="text-4xl m-4 font-bold justify-center flex gap-2"
           >
-            Hi, I'm <Name />
+            Hi, I&#39;m <Name />
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
