@@ -9,7 +9,12 @@ const handler: NextApiHandler = (req, res) => {
     return;
   }
 
-  const { content } = req.body;
+  let content = "";
+  if (typeof req.body === "string") {
+    content = req.body;
+  } else if (typeof req.body === "object") {
+    content = req.body.content;
+  }
 
   const mdit = new MarkdownIt({
     html: true,
