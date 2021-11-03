@@ -8,10 +8,6 @@
   transition-timing-function: ease;
 }
 
-a {
-  @apply text-blue-500 hover:text-blue-600 no-underline hover:underline;
-}
-
 code {
   @apply font-mono p-1 bg-gray-300 dark:bg-gray-700;
   font-size: 90%;

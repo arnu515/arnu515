@@ -49,3 +49,7 @@
   filter: none;
   padding: initial;
 }
+
+.content a {
+  @apply text-blue-500 hover:text-blue-600 no-underline hover:underline;
+}
