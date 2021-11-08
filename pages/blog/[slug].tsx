@@ -149,11 +149,11 @@ const BlogSlug: React.FC<{ post: IBlogPost; content: string }> = ({
 
   return (
     <main className="bg-gray-200 text-black dark:bg-[#212121] dark:text-white p-8 min-h-screen">
-      <img
+      {post.cover && <img
         src={post.cover}
         alt={`Cover of ${post.title}`}
         className="my-4 rounded-lg w-full h-[300px] border border-black dark:border-white"
-      />
+      />}
       <h1 className="text-5xl font-bold my-6">{post.title}</h1>
       <p className="my-4">
         {(post.tags || "").split(",").map((tag, key) => (
