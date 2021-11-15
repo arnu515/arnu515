@@ -26,6 +26,9 @@ const handler: NextApiHandler = async (req, res) => {
           }
         }
       }
+    },
+    orderBy: {
+      createdAt: "desc"
     }
   });
   console.log(posts);
