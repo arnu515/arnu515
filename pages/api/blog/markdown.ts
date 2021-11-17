@@ -33,7 +33,7 @@ const handler: NextApiHandler = (req, res) => {
           );
         } catch (__) {}
       }
-      return ""; // use external default escaping
+      return tag("pre", { class: "hljs lang-plain" }, tag("code", str)); // use external default escaping
     }
   });
   mdit.use(require("markdown-it-anchor"));
