@@ -8,7 +8,7 @@ This is the source code for my website, and also, my public Github Profile.
 
 ## 🚀 About me
 
-I am a 15 year old self-taught web developer in 🇮🇳 India. I build websites and web applications.
+I am a 16 year old self-taught web developer in 🇮🇳 India. I build websites and web applications.
 
 This repository contains the source code of my website, built by me, using [NextJS](https://nextjs.org) and [Directus CMS](https://directus.io).
 
