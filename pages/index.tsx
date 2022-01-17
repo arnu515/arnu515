@@ -50,7 +50,7 @@ const Index: React.FC = () => {
             transition={{ duration: 2, delay: 0.3 }}
             className="text-2xl mt-2 text-gray-500 dark:text-gray-300"
           >
-            A {process.env.NEXT_PUBLIC_AGE}-year old self taught web developer.
+            A self taught web developer from <b>India</b>.
           </motion.p>
           <motion.p
             initial={{ opacity: 0 }}
