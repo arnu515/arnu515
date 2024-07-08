@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script>
+		const themeLS = localStorage.getItem("theme")
+		const isDarkInit = themeLS ? themeLS === 'dark' : window.matchMedia("(prefers-color-scheme: dark)").matches
+		if (isDarkInit) document.documentElement.classList.add("dark")
+		else document.documentElement.classList.remove("dark")
+	</script>
+	%sveltekit.head%
+</head>
+
+<body data-sveltekit-preload-data="hover">
+	<div style="display: contents">%sveltekit.body%</div>
+</body>
+
+</html>
